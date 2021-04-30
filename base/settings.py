@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,7 +78,10 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 # Rest Framework config. Add all of this.
 REST_FRAMEWORK = {    
-'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P",    
+'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P",
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.IsAuthenticated'
+], 
 'DEFAULT_AUTHENTICATION_CLASSES': [        
 'rest_framework.authentication.TokenAuthentication',    
 ],
@@ -152,7 +155,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ALLOW_ALL_ORIGINS = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 

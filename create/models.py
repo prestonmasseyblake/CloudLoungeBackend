@@ -18,7 +18,7 @@ class Reddit(models.Model):
     lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, related_name="reddit")
     name = models.CharField(max_length=200)
 
-
+    
 class Videos(models.Model):
     lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, related_name="videos")
     title = models.CharField(max_length=500)

@@ -6,11 +6,14 @@ from .models import Lounge
 from django.core import serializers
 from rest_framework import viewsets
 from django.db.models import Q
+from rest_framework import permissions
 class LoungeView(viewsets.ModelViewSet):
     queryset = Lounge.objects.all()
+    permission_classes = (permissions.AllowAny, )
     serializer_class = LoungeSerializer
 class LoungePageView(RetrieveAPIView):
     queryset = Lounge.objects.all()
+    permission_classes = (permissions.AllowAny, )
     serializer_class = LoungeSerializer
     lookup_field = 'slug'
 class LoungePageUpdateView(UpdateAPIView):
@@ -18,10 +21,12 @@ class LoungePageUpdateView(UpdateAPIView):
     serializer_class = LoungeSerializer
     lookup_field = 'slug'
 class LoungeLookupView(viewsets.ModelViewSet):
+    permission_classes = (permissions.AllowAny, )
     queryset = Lounge.objects.all()
     serializer_class = LoungeSerializer
     lookup_field = 'slug'
 class SearchPage(ListAPIView):
+    permission_classes = (permissions.AllowAny, )
     serializer_class = LoungeSerializer
     model = serializer_class.Meta.model
     paginate_by = 5
