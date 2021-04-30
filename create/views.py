@@ -18,6 +18,7 @@ class LoungePageView(RetrieveAPIView):
     lookup_field = 'slug'
 class LoungePageUpdateView(UpdateAPIView):
     queryset = Lounge.objects.all()
+    permission_classes = (permissions.AllowAny, )
     serializer_class = LoungeSerializer
     lookup_field = 'slug'
 class LoungeLookupView(viewsets.ModelViewSet):
