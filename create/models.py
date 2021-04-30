@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 class Lounge(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -18,7 +17,7 @@ class Reddit(models.Model):
     lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, related_name="reddit")
     name = models.CharField(max_length=200)
 
-    
+
 class Videos(models.Model):
     lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, related_name="videos")
     title = models.CharField(max_length=500)

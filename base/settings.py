@@ -27,7 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+'localhost:3000/',
+'localhost:8000',
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -168,7 +174,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
