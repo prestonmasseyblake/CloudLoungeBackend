@@ -7,7 +7,7 @@ class Lounge(models.Model):
     followers = models.IntegerField(max_length=10000000,null=True)
     name = models.CharField(max_length=255, unique=True)
     slug = models.CharField(max_length=200, unique=True, null=True, blank=True)
-    picture = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
+    picture = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True, null=True)
     isYoutube = models.BooleanField(default=False)
     isAmazon = models.BooleanField(default=False)
     isBitcoin = models.BooleanField(default=False)
@@ -23,10 +23,8 @@ class Reddit(models.Model):
 
 
 class Videos(models.Model):
-    lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, related_name="videos")
-    title = models.CharField(max_length=500)
-    src = models.CharField(max_length=500)
-    alt = models.CharField(max_length=500)
+    lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, null=True, blank=True, related_name="videos")
+    title = models.CharField(max_length=500, default="sir")
 
 
 
