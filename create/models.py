@@ -1,9 +1,9 @@
 from django.db import models
 from autoslug import AutoSlugField
-from users import models as user_models
+# from users import models as user_models
 # Create your models here.
 class Lounge(models.Model):
-    creator = models.ForeignKey(user_models.Profile,on_delete=models.CASCADE,null=True,related_name='creator')
+    # creator = models.ForeignKey(user_models.Profile,on_delete=models.CASCADE,null=True,related_name='creator')
     followers = models.IntegerField(max_length=10000000,null=True)
     name = models.CharField(max_length=255, unique=True)
     slug = models.CharField(max_length=200, unique=True, null=True, blank=True)
@@ -25,8 +25,6 @@ class Reddit(models.Model):
 class Videos(models.Model):
     lounge = models.ForeignKey(Lounge,on_delete=models.CASCADE, null=True, blank=True, related_name="videos")
     title = models.CharField(max_length=500, default="sir")
-
-
 
 
 

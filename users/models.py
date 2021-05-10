@@ -7,7 +7,7 @@ class CustomUser(AbstractUser):
         return self.email
     
 class Profile(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, primary_key=True)
     profile_image = models.ImageField(null=True)
     name = models.CharField(max_length = 128, null=True)
     website = models.TextField(null=True)
@@ -17,20 +17,17 @@ class Profile(models.Model):
     loungeFollowers = models.ManyToManyField("self", null=True, blank=True)
     loungeFollowing = models.ManyToManyField("self", null=True, blank=True)
 
-    def __str__(self):
-        return self.email
-    
-    @property
-    def lounges_count(self):
-        return self.Lounge.all().count()
+    # @property
+    # def lounges_count(self):
+    #     return self.Lounge.all().count()
 
-    @property
-    def followers_count(self):
-        return self.followers.all().count()
+    # @property
+    # def followers_count(self):
+    #     return self.followers.all().count()
     
-    @property
-    def following_count(self):
-        return self.following.all().count()
+    # @property
+    # def following_count(self):
+    #     return self.following.all().count()
 
 class Wallet(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
