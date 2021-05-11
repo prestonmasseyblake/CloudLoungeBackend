@@ -7,7 +7,7 @@ class CustomUser(AbstractUser):
         return self.email
     
 class Profile(models.Model):
-    Mainuser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)
+    # Mainuser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)
     profile_image = models.ImageField(null=True)
     name = models.CharField(max_length = 128, null=True)
     website = models.TextField(null=True)
