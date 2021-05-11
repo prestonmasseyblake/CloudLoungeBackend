@@ -6,3 +6,7 @@ class UserSerializer(ModelSerializer):
         model = CustomUser
         fields = ('email', 'last_login', 'date_joined', 'is_staff')
 
+class ProfileSerializer(ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = '__all__'

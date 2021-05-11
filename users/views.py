@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import UserSerializer
+from .serializers import UserSerializer, ProfileSerializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.generics import UpdateAPIView
 from django.core import serializers
@@ -14,3 +14,9 @@ class UsersView(viewsets.ModelViewSet):
     permission_classes = (permissions.AllowAny, )
     serializer_class = UserSerializer
 
+class ProfileView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    permission_classes = (permissions.AllowAny, )
+    serializer_class = ProfileSerializer
+
+    
